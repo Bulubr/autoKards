@@ -105,6 +105,14 @@ def main():
     continue_image_path = os.path.join(current_dir, 'continue.png')  # Continue 按钮路径
     surrender_image_path = os.path.join(current_dir, 'surrender.png')
 
+
+    pyautogui.click()
+    time.sleep(2)
+    pyautogui.click()
+    pyautogui.click()
+    time.sleep(2)
+    pyautogui.click()
+
     # 检测并点击 Start 按钮
     while True:
         if detect_and_click_button(start_image_path):
@@ -121,7 +129,7 @@ def main():
         pyautogui.click()
 
     # 进入4分钟倒计时
-    countdown_time = 4 * 60  # 4分钟
+    countdown_time = 4 * 65  # 4分钟
     start_time = time.time()
 
     while time.time() - start_time < countdown_time:
@@ -142,6 +150,7 @@ def main():
                     time.sleep(3)
                     detect_and_click_button(continue_image_path)
                     time.sleep(3)
+                    pyautogui.move(-550, 0)
                     break
 
             print("Restarting main process...")
@@ -156,11 +165,12 @@ def main():
 
             # 等待25秒后点击endturn按钮
             print("Waiting 25 seconds before clicking Endturn...")
-            time.sleep(2)  # 等待25秒
+            time.sleep(25)  # 等待25秒
 
             # 点击endturn按钮
             detect_and_click_button(endturn_image_path)
             print("Endturn button clicked after Setting operations.")
+            pyautogui.move(-580, 0)
 
         time.sleep(1)  # 每秒检测一次endturn按钮
     detect_and_click_button(setting_image_path)
@@ -179,6 +189,7 @@ def main():
             time.sleep(3)
             detect_and_click_button(continue_image_path)
             time.sleep(3)
+            pyautogui.move(-550, 0)
             break
 if __name__ == '__main__':
     while True:
