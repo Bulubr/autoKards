@@ -104,6 +104,8 @@ def main():
     setting_image_path = os.path.join(current_dir, 'setting.png')  # Setting 图标路径
     continue_image_path = os.path.join(current_dir, 'continue.png')  # Continue 按钮路径
     surrender_image_path = os.path.join(current_dir, 'surrender.png')
+    No_image_path = os.path.join(current_dir, 'No.png')
+
 
 
     pyautogui.click()
@@ -114,6 +116,7 @@ def main():
     pyautogui.click()
 
     # 检测并点击 Start 按钮
+    detect_and_click_button(No_image_path)
     while True:
         if detect_and_click_button(start_image_path):
             print("Start button clicked, waiting for 10 seconds...")
